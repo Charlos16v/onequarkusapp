@@ -1,12 +1,16 @@
 package edu.pingpong.onequarkusapp.service;
 
 import edu.pingpong.onequarkusapp.entity.Item;
+import edu.pingpong.onequarkusapp.entity.Orden;
 import edu.pingpong.onequarkusapp.entity.Usuaria;
 import edu.pingpong.onequarkusapp.repository.RepositoryItem;
+import edu.pingpong.onequarkusapp.repository.RepositoryOrden;
 import edu.pingpong.onequarkusapp.repository.RepositoryUsuaria;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 // Single bean instance
@@ -18,6 +22,9 @@ public class ServiceOlli {
 
     @Inject
     RepositoryItem repositoryItem;
+
+    @Inject
+    RepositoryOrden repositoryOrden;
 
     public ServiceOlli() {}
 
@@ -32,5 +39,11 @@ public class ServiceOlli {
         Optional<Item> item = this.repositoryItem.getItemByNombre(nombre);
         if (item.isEmpty()) return new Item("", 0);
         return item.get();
+    }
+
+    public List<Orden> cargaOrden(String nombre) {
+        List<Orden> ordenList = repositoryOrden.getOrdenesByNombre(nombre);
+        if (ordenList.isEmpty()) return Collections.emptyList();
+        return ordenList;
     }
 }
