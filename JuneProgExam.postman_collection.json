@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "05f883dc-8af9-4811-aca4-134590c52b0d",
+		"name": "JuneProgExam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/wellcome",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/wellcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wellcome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/usuaria/{nombre}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuaria/Doobey",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuaria",
+						"Doobey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/ordena",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\": {\"nombre\": \"Hermione\"}, \"item\": {\"nombre\": \"AgedBrie\"}}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordena",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordena"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/pedidos/{usuaria}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/pedidos/Hermione",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"Hermione"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/item/{nombre}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/item/AgedBrie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"AgedBrie"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
