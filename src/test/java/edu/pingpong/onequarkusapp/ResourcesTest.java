@@ -13,6 +13,7 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.MediaType;
 
+import edu.pingpong.onequarkusapp.resource.ResourcesOlli;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +34,7 @@ public class ResourcesTest {
 	 * Implementa una clase Resources que
 	 * añada una API REST a nuestra app.
 	 * Injecta el servicio en Resources.
-     */
+    */
 
     @Test
     public void test_injeccion() {
@@ -62,7 +63,7 @@ public class ResourcesTest {
      *      /usuaria/<nombre>
      * ha de retornar el nombre y la destreza de la persona 
 	 * indicada de la base de datos.
-     */
+
     @Test
     public void test_get_persona() {
 
@@ -93,7 +94,7 @@ public class ResourcesTest {
 	 * e "item" con el nombre del objeto, en un JSON.
      * La peticion ha de retornar la orden de pedido JSON
      * y status code 201 si ha sido generada y 404 en caso contrario.
-     */
+
 	@Test
     @Transactional
     public void test_post_ok() {
@@ -143,7 +144,7 @@ public class ResourcesTest {
      * Obten los pedidos de una usuaria mediante
      * una peticion GET en el endpoint:
      *      /pedidos/{usuaria}
-     */
+
 
     @Test
     public void test_pedidos_usuaria() {             
@@ -165,7 +166,7 @@ public class ResourcesTest {
      *      /item/<nombre>
      * ha de retornar el nombre y la calidad
      * del Item indicado de la base de datos.
-     */
+
     @Test
     public void test_get_item() {
 
@@ -187,5 +188,5 @@ public class ResourcesTest {
             .get("/item/{nombre}")
         .then()
             .statusCode(404);
-	}
+	}*/
 }
