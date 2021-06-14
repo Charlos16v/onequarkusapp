@@ -13,6 +13,7 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.MediaType;
 
+import edu.pingpong.onequarkusapp.entity.Orden;
 import edu.pingpong.onequarkusapp.resource.ResourcesOlli;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -94,7 +95,7 @@ public class ResourcesTest {
 	 * e "item" con el nombre del objeto, en un JSON.
      * La peticion ha de retornar la orden de pedido JSON
      * y status code 201 si ha sido generada y 404 en caso contrario.
-
+    */
 	@Test
     @Transactional
     public void test_post_ok() {
@@ -144,7 +145,7 @@ public class ResourcesTest {
      * Obten los pedidos de una usuaria mediante
      * una peticion GET en el endpoint:
      *      /pedidos/{usuaria}
-
+    */
 
     @Test
     public void test_pedidos_usuaria() {             
