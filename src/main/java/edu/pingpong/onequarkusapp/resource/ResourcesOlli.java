@@ -59,4 +59,13 @@ public class ResourcesOlli {
         return !ordenesUsuaria.isEmpty() ?  Response.ok(ordenesUsuaria).build() :
                 Response.status(Response.Status.NOT_FOUND).build();
     }
+
+    @GET
+    @Path("/item/{nombre}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getItemByName(@PathParam("nombre") String nombreItem) {
+        Item item = service.cargaItem(nombreItem);
+        return !item.getNombre().equals("") ?  Response.ok(item).build() :
+                Response.status(Response.Status.NOT_FOUND).build();
+    }
 }
