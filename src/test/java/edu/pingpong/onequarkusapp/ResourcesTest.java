@@ -63,7 +63,7 @@ public class ResourcesTest {
      *      /usuaria/<nombre>
      * ha de retornar el nombre y la destreza de la persona 
 	 * indicada de la base de datos.
-
+    */
     @Test
     public void test_get_persona() {
 
