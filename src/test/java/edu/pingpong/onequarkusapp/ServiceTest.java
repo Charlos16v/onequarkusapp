@@ -11,6 +11,7 @@ import java.util.List;
 import javax.inject.*;
 
 import edu.pingpong.onequarkusapp.entity.Item;
+import edu.pingpong.onequarkusapp.entity.Orden;
 import edu.pingpong.onequarkusapp.entity.Usuaria;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -64,7 +65,7 @@ public class ServiceTest {
 	 * Completa la definicion y el mapping
 	 * de la clase Orden a la tabla t_ordenes
 	 * El id de esta clase ha de seguir una estrategia Identity
-
+	*/
 	@Test 
 	public void test_mapping_orden() {
 		Orden pedido = em.find(Orden.class, 1L);
