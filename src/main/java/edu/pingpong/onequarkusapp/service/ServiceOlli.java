@@ -9,6 +9,7 @@ import edu.pingpong.onequarkusapp.repository.RepositoryUsuaria;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -58,5 +59,16 @@ public class ServiceOlli {
 
         Orden newOrden = new Orden(usuaria.get(), item.get());
         return repositoryOrden.saveOrder(newOrden);
+    }
+
+    public List<Orden> comandaMultiple(String usuariaNombre, List<String> itemNombresList) {
+        List<Orden> ordenList = new ArrayList<>();
+        for (String item: itemNombresList) {
+            Orden orden = comanda(usuariaNombre, item);
+            if (orden != null) {
+                ordenList.add(orden);
+            }
+        }
+        return ordenList;
     }
 }
