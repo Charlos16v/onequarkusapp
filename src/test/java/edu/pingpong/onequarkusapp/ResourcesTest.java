@@ -168,7 +168,7 @@ public class ResourcesTest {
      *      /item/<nombre>
      * ha de retornar el nombre y la calidad
      * del Item indicado de la base de datos.
-
+    */
     @Test
     public void test_get_item() {
 
@@ -190,5 +190,5 @@ public class ResourcesTest {
             .get("/item/{nombre}")
         .then()
             .statusCode(404);
-	}*/
+	}
 }
