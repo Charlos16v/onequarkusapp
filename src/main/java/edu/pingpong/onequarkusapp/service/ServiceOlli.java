@@ -50,9 +50,12 @@ public class ServiceOlli {
     public Orden comanda(String usuariaNombre, String itemNombre) {
         Optional<Usuaria> usuaria = repositoryUsuaria.getUsuariaByNombre(usuariaNombre);
         Optional<Item> item = repositoryItem.getItemByNombre(itemNombre);
+
         if (usuaria.isEmpty() || item.isEmpty()) {
             return null;
         }
+        if (usuaria.get().getDestreza() < item.get().getQuality()) return null;
+
         Orden newOrden = new Orden(usuaria.get(), item.get());
         return repositoryOrden.saveOrder(newOrden);
     }
