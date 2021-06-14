@@ -14,7 +14,7 @@ public class RepositoryOrden implements PanacheRepository<Orden> {
     }
 
     public Orden saveOrder(Orden orden) {
-        this.persist(orden);
+        this.persistAndFlush(orden);
         return orden;
     }
 }
