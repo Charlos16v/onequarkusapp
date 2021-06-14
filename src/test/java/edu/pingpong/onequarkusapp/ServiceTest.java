@@ -13,6 +13,7 @@ import javax.inject.*;
 import edu.pingpong.onequarkusapp.entity.Item;
 import edu.pingpong.onequarkusapp.entity.Orden;
 import edu.pingpong.onequarkusapp.entity.Usuaria;
+import edu.pingpong.onequarkusapp.service.ServiceOlli;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -25,8 +26,8 @@ public class ServiceTest {
     @PersistenceContext
     EntityManager em;
 
-    //@Inject
-    //ServiceOlli servicio;
+    @Inject
+	ServiceOlli servicio;
 
     /**
 	 * MAPPINGS de la entidades a las tablas de la BBDD.
@@ -79,7 +80,7 @@ public class ServiceTest {
     /**
 	 * Crea una clase llamada ServiceItem e indica
 	 * que es una dependencia Quarkus 
-
+	*/
 
     @Test
 	public void test_inyeccion_servicio() {
