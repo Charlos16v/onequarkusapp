@@ -6,12 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "t_items")
 public class Item extends PanacheEntityBase {
 
     @Id
+    @NotNull(message = "Nombre may not be null")
     @Column(name = "item_nom")
     public String nombre;
 
