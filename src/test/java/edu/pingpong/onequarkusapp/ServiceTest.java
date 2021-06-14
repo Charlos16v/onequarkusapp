@@ -233,7 +233,7 @@ public class ServiceTest {
 	 * NO permita generar pedidos de productos
 	 * cuando la destreza de la usuaria sea menor
 	 * que la calidad del Item.
-
+	*/
 	@Test
 	public void test_comanda_item_sin_pro() {
 		Assertions.assertThat(servicio).isNotNull();
