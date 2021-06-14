@@ -11,6 +11,7 @@ import java.util.List;
 import javax.inject.*;
 
 import edu.pingpong.onequarkusapp.entity.Item;
+import edu.pingpong.onequarkusapp.entity.Usuaria;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +51,7 @@ public class ServiceTest {
 	/**
 	 * Completa la definicion y el mapping
 	 * de la clase Usuaria a la tabla t_users
-
+	*/
 	@Test
 	public void test_mapping_usuaria() {
 		Usuaria elfo = em.find(Usuaria.class, "Doobey");
