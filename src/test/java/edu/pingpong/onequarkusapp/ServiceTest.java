@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.inject.*;
 
+import edu.pingpong.onequarkusapp.entity.Item;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -22,8 +23,8 @@ public class ServiceTest {
     @PersistenceContext
     EntityManager em;
 
-    @Inject
-    ServiceOlli servicio;
+    //@Inject
+    //ServiceOlli servicio;
 
     /**
 	 * MAPPINGS de la entidades a las tablas de la BBDD.
@@ -49,7 +50,7 @@ public class ServiceTest {
 	/**
 	 * Completa la definicion y el mapping
 	 * de la clase Usuaria a la tabla t_users
-	 */
+
 	@Test
 	public void test_mapping_usuaria() {
 		Usuaria elfo = em.find(Usuaria.class, "Doobey");
@@ -62,7 +63,7 @@ public class ServiceTest {
 	 * Completa la definicion y el mapping
 	 * de la clase Orden a la tabla t_ordenes
 	 * El id de esta clase ha de seguir una estrategia Identity
-	 */
+
 	@Test 
 	public void test_mapping_orden() {
 		Orden pedido = em.find(Orden.class, 1L);
@@ -76,7 +77,7 @@ public class ServiceTest {
     /**
 	 * Crea una clase llamada ServiceItem e indica
 	 * que es una dependencia Quarkus 
-	 */
+
 
     @Test
 	public void test_inyeccion_servicio() {
@@ -88,7 +89,7 @@ public class ServiceTest {
 	 * Devuelve la usuaria con el nombre indicado, si existe.
 	 * Si no existe, devuelve un objeto usuaria con sus propiedades
      * y valores como se indica en los casos test.
-	 */
+
 	@Test
 	public void test_carga_usuaria() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -112,7 +113,7 @@ public class ServiceTest {
 	 * Devuelve el item con el nombre indicado, si existe.
      * Si no existe, devuelve un objeto usuaria con sus propiedades
      * y valores como se indica en los casos test.
-	 */
+
 
     @Test
 	public void test_carga_item() {
@@ -137,7 +138,7 @@ public class ServiceTest {
 	 * Devuelve una lista con los pedidos de la usuaria 
 	 * con el nombre indicado, si existe.
      * Si no existe, devuelve una lista vacía.
-	 */
+
 
     @Test
 	public void test_carga_orden() {
@@ -165,7 +166,7 @@ public class ServiceTest {
 	 * Guarda esta orden en su tabla en la base de datos.
 	 * 
      * El metodo devuelve la orden de tipo Orden creada.
-	 */
+
 	@Test
 	@Transactional
 	public void test_comanda_ok() {
@@ -190,7 +191,7 @@ public class ServiceTest {
      * Implementa el metodo comanda del servicio
 	 * para que NO permita generar pedidos de productos
 	 * si no existe la usuaria en la base de datos.
-	 */
+
 	@Test
 	public void test_comanda_no_user() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -209,7 +210,7 @@ public class ServiceTest {
      * Implementa el metodo comanda del servicio
 	 * para que NO permita generar pedidos de productos
 	 * si no existe el item en la base de datos.
-	 */
+
 	@Test
 	public void test_comanda_no_item() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -229,7 +230,7 @@ public class ServiceTest {
 	 * NO permita generar pedidos de productos
 	 * cuando la destreza de la usuaria sea menor
 	 * que la calidad del Item.
-	 */
+
 	@Test
 	public void test_comanda_item_sin_pro() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -251,7 +252,7 @@ public class ServiceTest {
 	 * en la base de datos.
 	 * 
 	 * No se ordenan items que no existan en la base de datos.
-	 */
+
 
 	@Test
 	@Transactional
@@ -289,5 +290,5 @@ public class ServiceTest {
 		Assertions.assertThat(servicio).isNotNull();
 		List<Orden> ordenes = servicio.comandaMultiple("Hermione", Arrays.asList("Guardapelo Salazar", "Reliquias de la Muerte"));
 		Assertions.assertThat(ordenes).isEmpty();
-	}
+	}*/
 	}
