@@ -61,6 +61,7 @@ public class ServiceOlli {
         return repositoryOrden.saveOrder(newOrden);
     }
 
+    //TODO: REFACTOR WITH A STREAM
     public List<Orden> comandaMultiple(String usuariaNombre, List<String> itemNombresList) {
         List<Orden> ordenList = new ArrayList<>();
         for (String item: itemNombresList) {
