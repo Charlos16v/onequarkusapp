@@ -46,4 +46,14 @@ public class ServiceOlli {
         if (ordenList.isEmpty()) return Collections.emptyList();
         return ordenList;
     }
+
+    public Orden comanda(String usuariaNombre, String itemNombre) {
+        Optional<Usuaria> usuaria = repositoryUsuaria.getUsuariaByNombre(usuariaNombre);
+        Optional<Item> item = repositoryItem.getItemByNombre(itemNombre);
+        if (usuaria.isEmpty() || item.isEmpty()) {
+            return null;
+        }
+        Orden newOrden = new Orden(usuaria.get(), item.get());
+        return repositoryOrden.saveOrder(newOrden);
+    }
 }

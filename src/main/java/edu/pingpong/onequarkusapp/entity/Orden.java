@@ -1,10 +1,13 @@
 package edu.pingpong.onequarkusapp.entity;
 
+
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "t_ordenes")
-public class Orden {
+public class Orden extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +25,7 @@ public class Orden {
 
     public Orden() {}
 
-    public Orden(Long id, Usuaria user, Item item) {
-        this.id = id;
+    public Orden(Usuaria user, Item item) {
         this.user = user;
         this.item = item;
     }
@@ -34,5 +36,9 @@ public class Orden {
 
     public Item getItem() {
         return item;
+    }
+
+    public Long getId() {
+        return this.id;
     }
 }
