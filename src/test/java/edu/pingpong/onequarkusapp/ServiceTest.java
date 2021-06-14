@@ -169,7 +169,7 @@ public class ServiceTest {
 	 * Guarda esta orden en su tabla en la base de datos.
 	 * 
      * El metodo devuelve la orden de tipo Orden creada.
-
+	*/
 	@Test
 	@Transactional
 	public void test_comanda_ok() {
@@ -194,7 +194,7 @@ public class ServiceTest {
      * Implementa el metodo comanda del servicio
 	 * para que NO permita generar pedidos de productos
 	 * si no existe la usuaria en la base de datos.
-
+	*/
 	@Test
 	public void test_comanda_no_user() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -213,7 +213,7 @@ public class ServiceTest {
      * Implementa el metodo comanda del servicio
 	 * para que NO permita generar pedidos de productos
 	 * si no existe el item en la base de datos.
-
+	*/
 	@Test
 	public void test_comanda_no_item() {
 		Assertions.assertThat(servicio).isNotNull();
