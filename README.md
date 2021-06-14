@@ -1,18 +1,33 @@
-INSTRUCCIONES
-=============
+## Examen Junio Programación 2021
 
-0. Crea un repo en github y compártelo de manera privada conmigo. Realiza un commit como mínimo al pasar cada caso test propuesto o **no corregiré** tu examen.
-Realiza un `push` al repo remoto en GitHub **SOLO cuando hayas terminado el proyecto**.
 
-1. Crea un proyecto REST Quarkus con Maven. Instala las dependencias del proyecto según las vayas necesitando.
+### ¿Porque DAO?
+El patrón DAO se utiliza para separar las operaciones o la API de acceso 
+a datos de bajo nivel de los servicios de alto nivel.
 
-2. Situa los archivos proporcionados: `schema.sql` y `application.properties` en sus directorios correspondientes del proyecto. **No** modifiques el contenido de estos dos archivos.
 
-3. Comienza implementando los casos test del archivo `ServiceTest.java`. **No** modifiques su código. Implementa las entidades y la capa correspondiente al repositorio o acceso a datos con el patrón que prefieras (Active Record o DAO).
+### IMAGEN EN DOCKERHUB:
+https://hub.docker.com/r/charlos16v/quarkusapp
 
-4. Los casos test del servicio involucran los contenidos mínimos del módulo necesarios para aprobar.
+### CREAR IMAGEN, SUBIRLA A DOCKERHUB Y EJECUTARLA
+#### JAR
+```bash
+./mvnw clean package -DskipTests=true
 
-5. Una vez codificado el servicio, continua con los casos test del archivo `ResourcesTest.java` para implementar el controlador de la app.
+docker build -f src/main/docker/Dockerfile.jvm -t charlos16v/quarkusapp .
+
+docker push charlos16v/quarkusapp
+
+docker run -d --name {contenedor} -p 8080:8080 charlos16v/quarkusapp
+```
+#### NATIVA (H2 database compiled into a native-image is only functional as a client)
+```bash
+./mvnw package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true
+
+docker push charlos16v/quarkusappnative
+
+docker run -d --name {contenedor} -p 8080:8080 charlos16v/quarkusappnative
+```
 
 ```bash
             ___
