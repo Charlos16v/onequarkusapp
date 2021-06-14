@@ -158,6 +158,7 @@ public class ResourcesTest {
                 .as(new TypeRef<List<Map<String, Object>>>() {});
         
         Assertions.assertThat(pedidos).hasSize(1);
+
         Assertions.assertThat(pedidos.get(0).get("user")).hasFieldOrPropertyWithValue("nombre", "Hermione");
         Assertions.assertThat(pedidos.get(0).get("item")).hasFieldOrPropertyWithValue("nombre", "+5 Dexterity Vest");
     }
