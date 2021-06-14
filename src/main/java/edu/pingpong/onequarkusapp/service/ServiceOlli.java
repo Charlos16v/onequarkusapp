@@ -9,6 +9,7 @@ import edu.pingpong.onequarkusapp.repository.RepositoryUsuaria;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,6 +49,7 @@ public class ServiceOlli {
         return ordenList;
     }
 
+    @Transactional
     public Orden comanda(String usuariaNombre, String itemNombre) {
         Optional<Usuaria> usuaria = repositoryUsuaria.getUsuariaByNombre(usuariaNombre);
         Optional<Item> item = repositoryItem.getItemByNombre(itemNombre);
@@ -62,6 +64,7 @@ public class ServiceOlli {
     }
 
     //TODO: REFACTOR WITH A STREAM
+    @Transactional
     public List<Orden> comandaMultiple(String usuariaNombre, List<String> itemNombresList) {
         List<Orden> ordenList = new ArrayList<>();
         for (String item: itemNombresList) {
