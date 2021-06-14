@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  quarkus-service:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.jvm
+    image: quarkus-api:prod
+    mem_limit: 128m
+    ports:
+      - 8080:8080
+    depends_on:
+      quarkus-db:
+        condition: service_healthy
+    networks:
+      - quarkus
+
+  quarkus-db:
+    image: postgres:latest
+    mem_limit: 128m
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=fruit
+    volumes:
+      - ./src/main/resources/initconf.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 6
+    expose:
+      - 5555
+    ports:
+      - 5555:5432
+    networks:
+      quarkus:
+        aliases:
+          - quarkus-db
+
+networks:
+  quarkus:
+    name: quarkus
+    driver: bridge

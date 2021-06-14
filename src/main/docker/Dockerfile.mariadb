@@ -1,0 +1,12 @@
+FROM mariadb
+
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_USER=developer
+ENV MYSQL_PASSWORD=developer
+ENV MYSQL_DATABASE=fruit
+
+EXPOSE 3306
+
+#docker run -it --rm --name maria_fresh -e MYSQL_ROOT_PASSWORD=developer -e MYSQL_USR=developer -e MYSQL_PASSWORD=developer -e MYSQL_DATABASE=fruit -p 6666:3306 -d mariadb:latest
+# docker build -f src/main/docker/Dockerfile.mariadb -t charlos16v/mariadb-example-db .
+# docker run -d --name mariadb-example-db -p 6666:3306 charlos16v/mariadb-example-db

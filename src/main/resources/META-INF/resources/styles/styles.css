@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Libre Baskerville", serif;
+  letter-spacing: 2px;
+}
+
+*::selection {
+  background-color: #ffffeb;
+  color: #6e0d25;
+}
+
+body {
+  background: #151415;
+  color: #ffffeb;
+}
+
+a {
+  color: #ffffeb;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(85,10,29);
+  background: linear-gradient(0deg, rgba(85,10,29,1) 59%, rgba(40,9,24,1) 100%);
+  border-bottom: 8px solid #25040c;
+  padding: 20px;
+}
+
+header button {
+  padding: 10px;
+  background: none;
+  border: 2px solid #ffffeb;
+  border-radius: 4px;
+  color: #ffffeb;
+  transition: 0.2s;
+  position: absolute;
+  left: 30px;
+}
+
+header button:hover {
+  background: #25040c;
+}
+
+header h2 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+header a.link {
+  position: absolute;
+  display: inline;
+  right: 30px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: 6px;
+  transition: 0.3s;
+}
+
+header a.link:hover {
+  border-bottom: 2px solid #ffffeb;
+}
+
+main {
+  width: 80%;
+  margin: 40px auto;
+}
+
+/* Filter */
+
+main .filter form {
+  margin: 0 auto;
+}
+
+main .filter form input,
+select {
+  padding: 10px;
+  background: #6e0d25;
+  border: 2px solid #ffffeb;
+  border-radius: 5px;
+  color: #ffffeb;
+  outline: none;
+}
+
+/* Inventory */
+
+.inventory {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.inventory .item-card {
+  width: 250px;
+  height: 400px;
+  background: rgb(111,14,36);
+  background: linear-gradient(180deg, rgba(111,14,36,1) 60%, rgba(80,9,24,1) 100%);
+  border: 6px solid #25040c;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.inventory .item-card h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.inventory .item-card i {
+  font-size: 6em;
+}
+
+.inventory .item-card .properties h4 {
+  margin: 10px;
+  text-align: center;
+}
+
+.inventory .item-card button {
+  padding: 10px;
+  background: none;
+  color: #ffffeb;
+  font-size: 14px;
+  border: 2px solid #ffffeb;
+  border-radius: 4px;
+  width: 100px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.inventory .item-card button:hover {
+  background: #ffffeb;
+  color: #6e0d25;
+}
+
+main .inventory-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 40px auto;
+}
+
+main .inventory-buttons button {
+  padding: 10px;
+  background: none;
+  color: #ffffeb;
+  border: 2px solid #ffffeb;
+  border-radius: 4px;
+  width: 200px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+main .inventory-buttons button:hover {
+  background: #48ad7c;
+}
+
+.personal-inventory {
+  margin-top: 250px;
+}
+
+/* Form */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form {
+  background: #25040c;
+  position: absolute;
+  width: 100%;
+}
+
+.index-form::after {
+  content: "";
+  display: block;
+  position: relative;
+  height: calc(100vh - 234.5px - 334px - 20px);
+  background: #25040c;
+}
+
+.form form {
+  width: 30%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form form input {
+  padding: 10px;
+  background: #6e0d25;
+  border: 2px solid #ffffeb;
+  border-radius: 5px;
+  color: #ffffeb;
+  outline: none;
+  width: 48%;
+}
+
+.form form.add-del-item input[name="name"] {
+  width: 100%;
+}
+
+::placeholder {
+  color: #ffffeb;
+  opacity: 0.6;
+}
+
+.form form .form-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+  gap: 20px;
+}
+
+.form form .form-buttons input {
+  padding: 10px;
+  background: none;
+  border: 2px solid #ffffeb;
+  border-radius: 4px;
+  color: #ffffeb;
+  transition: 0.2s;
+}
+
+.form form .form-buttons input:hover {
+  background: #48ad7c;
+}
+
+.form form .form-buttons input.delete:hover {
+  background: #6e0d25;
+}
+
+.form form.personal-inventory input {
+  width: 100%;
+}
+
+.form form.register-user input {
+  width: 100%;
+}
+
+.form form.personal-inventory .form-buttons {
+  justify-content: space-between;
+}

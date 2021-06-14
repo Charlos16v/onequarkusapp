@@ -1,0 +1,12 @@
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_USER=developer
+ENV MYSQL_PASSWORD=developer
+ENV MYSQL_DATABASE=fruit
+
+EXPOSE 3306
+
+# docker run -it --rm --name mysql-db -e MYSQL_ROOT_PASSWORD=developer -e MYSQL_USR=developer -e MYSQL_PASSWORD=developer -e MYSQL_DATABASE=fruit -p 6666:3306 -d mysql:latest
+# docker build -f src/main/docker/Dockerfile.mysql -t charlos16v/mysql-example-db .
+# docker run -d --name mysql-example-db -p 6666:3306 charlos16v/mysql-example-db
